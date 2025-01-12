@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operasi Himpunan</title>
+    <link rel="stylesheet" href="rumah.css">
+    <style>
+        
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e0f7fa;
+        margin: 0;
+        padding: 0;
+        opacity: 0,5;
+        width: 100%;
+        height: 100%;
+        
+    }
+    
+    h1 {
+        text-align: center;
+        color:   #00796b;
+        margin-top: 20px;
+    }
+    
+    form {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+       border-radius: 7px;
+       
+        
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color:  #00796b;
+        font-weight: bold;
+        
+    }
+    
+    input[type="text"] {
+        width: 98%;
+        padding: 4px;
+        margin-bottom: 20px;
+        border: 1px solid  rgb(18, 16, 16);
+        border-radius: 40px;
+    }
+    
+    input[type="button"] {
+        width: 100%;
+        padding: 5px;
+        background-color:  #00796b;
+        border :1px solid;
+        color: #fff;
+        
+        cursor: pointer;
+    }
+    
+    input[type="button"]:hover {
+        background-color: #97d5ed;
+        font-weight: bold;
+    }
+    h1 {
+        color: #00796b;
+    }
+    
+    h2 {
+        text-align: center;
+        color:  #00796b;
+        
+    }
+    
+    p {
+        max-width: 500px;
+        max-height: 200px;
+        margin: 10px auto;
+        background-color: #fff;
+        padding: 10px;
+        border:1px solid;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="TEKS">
+        
+            <b>SetMathematics </b>        
+             
+             </div>
+        <ul>
+            <li><a href="rumah.html">HOME</a></li>
+            <li><a href="home.html">VIDEO</a></li>
+            <li><a href="materi_1.html">MATERI</a></li>
+            <li><a href="programmtk.html">KALKULATOR</a></li>
+            <li><a href="kontak.html">KONTAK</a></li>
+            <li><a href="quiz.html">QUIZ</a></li>
+        </ul>
+    </nav>
+    
+    <h1>Operasi Himpunan</h1>
+    <form id="himpunanForm">
+        <label for="himpunanA">Masukan Himpunan A(dengan koma):</label>
+        <input type="text" id="himpunanA" name="himpunanA" required>
+        <br><br>
+        <label for="himpunanB">Masukan Himpunan B(dengan koma):</label>
+        <input type="text" id="himpunanB" name="himpunanB" required>
+        <br><br>
+        <label for="himpunanU">Masukan Himpunan U(dengan koma):</label>
+        <input type="text" id="himpunanU" name="himpunanU" required>
+        <br><br>
+        <input type="button" value="HITUNG" onclick="operasiHimpunan()">
+    </form>
+
+    <h2>HASIL OPERASI HIMPUNAN:</h2>
+    <p id="hasilGabungan"></p>
+    <p id="hasilIrisan"></p>
+    <p id="hasilSelisihA"></p>
+    <p id="hasilSelisihB"></p>
+    <p id="hasilKomplemenA"></p>
+    <p id="hasilKomplemenB"></p>
+
+    <script>function operasiHimpunan() {
+        // Mendapatkan input dari form
+        let himpunanA = document.getElementById('himpunanA').value.split(',').map(Number);
+        let himpunanB = document.getElementById('himpunanB').value.split(',').map(Number);
+        let himpunanU = document.getElementById('himpunanU').value.split(',').map(Number);
+    
+        // Mengonversi array ke set
+        let A = new Set(himpunanA);
+        let B = new Set(himpunanB);
+        let U = new Set(himpunanU);
+    
+        // Operasi himpunan
+        let himpunanGabungan = union(A, B);
+        let himpunanIrisan = intersection(A, B);
+        let selisihA = difference(A, B);
+        let selisihB = difference(B, A);
+        let C_komplemenA = difference(U, A);
+        let C_komplemenB = difference(U, B);
+    
+        // Menampilkan hasil
+        document.getElementById('hasilGabungan').innerText = `A ∪ B (Gabungan): ${[...himpunanGabungan].join(', ')}`;
+        document.getElementById('hasilIrisan').innerText = `A ∩ B (Irisan): ${[...himpunanIrisan].join(', ')}`;
+        document.getElementById('hasilSelisihA').innerText = `A - B: ${[...selisihA].join(', ')}`;
+        document.getElementById('hasilSelisihB').innerText = `B - A: ${[...selisihB].join(', ')}`;
+        document.getElementById('hasilKomplemenA').innerText = `Komplement A terhadap U: ${[...C_komplemenA].join(', ')}`;
+        document.getElementById('hasilKomplemenB').innerText = `Komplement B terhadap U: ${[...C_komplemenB].join(', ')}`;
+    }
+    
+    function union(setA, setB) {
+        let unionSet = new Set(setA);
+        for (let elem of setB) {
+            unionSet.add(elem);
+        }
+        return unionSet;
+    }
+    
+    function intersection(setA, setB) {
+        let intersectionSet = new Set();
+        for (let elem of setA) {
+            if (setB.has(elem)) {
+                intersectionSet.add(elem);
+            }
+        }
+        return intersectionSet;
+    }
+    
+    function difference(setA, setB) {
+        let differenceSet = new Set(setA);
+        for (let elem of setB) {
+            differenceSet.delete(elem);
+        }
+        return differenceSet;
+    }
+    </script>
+</body>
+</html>

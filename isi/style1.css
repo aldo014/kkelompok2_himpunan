@@ -1,0 +1,29 @@
+body {
+    background-image: url(mtk02.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+}
+.content {
+    width: 375px;
+    height: 345px;
+    margin:60px;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: white;
+}
+h2 {
+    text-align: center;
+}
+p {
+    text-align: justify;
+}

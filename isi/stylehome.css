@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.TEKS {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  margin: 0; /* Menghilangkan margin */
+  padding: 0; /* Menghilangkan padding */
+}
+
+.navbar {
+  background: linear-gradient(135deg, #00796b, #004d40); /* Gradasi warna latar belakang */
+  padding: 10px 15px; /* Padding di dalam navbar */
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  justify-content: space-between; /* Menyebar item di antara kiri dan kanan */
+  align-items: center; /* Menyelaraskan item secara vertikal */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan untuk efek kedalaman */
+  border-radius: 0; /* Menghilangkan border-radius untuk menyatu dengan atas */
+  position: fixed; /* Memastikan navbar tetap di atas saat menggulir */
+  top: 0; /* Menyatu dengan bagian atas */
+  left: 0; /* Menyatu dengan sisi kiri */
+  right: 0; /* Menyatu dengan sisi kanan */
+  z-index: 1000; /* Memastikan navbar berada di atas elemen lain */
+}
+
+.navbar .logo img {
+  width: 30px; /* Ukuran logo yang lebih kecil */
+  height: auto; /* Menjaga rasio aspek gambar */
+}
+
+.navbar ul {
+  list-style: none; /* Menghilangkan bullet point */
+  display: flex; /* Menggunakan flexbox untuk item menu */
+  margin: 0; /* Menghilangkan margin */
+  padding: 0; /* Menghilangkan padding */
+}
+
+.navbar ul li {
+  margin: 0 15px; /* Margin horizontal antar item */
+}
+
+.navbar ul li a {
+  color: white; /* Warna teks */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  font-weight: bold; /* Menebalkan teks */
+  font-size: 14px; /* Ukuran font */
+  transition: color 0.4s ease, text-decoration 0.4s ease; /* Transisi yang lebih halus */
+}
+
+.navbar ul li a:hover {
+  color: #ffeb3b; /* Warna teks saat hover */
+  text-decoration: underline; /* Garis bawah saat hover */
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Media query untuk responsivitas */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column; /* Susun ulang navigasi pada perangkat kecil */
+      align-items: flex-start; /* Rata kiri */
+  }
+
+  .navbar ul {
+      flex-direction: column; /* Susun item navigasi secara vertikal */
+      width: 100%; /* Lebar penuh */
+  }
+
+  .navbar ul li {
+      width: 100%; /* Lebar penuh untuk item navigasi */
+  }
+
+  .navbar ul li a {
+      display: block; /* Tautan menjadi blok untuk memudahkan klik */
+      text-align: center; /* Rata tengah */
+      padding: 10px; /* Tambahkan padding untuk area klik yang lebih kecil */
+  }
+}
+.content {
+  
+  max-width: 80%; /* Lebar maksimum konten */
+  height:200px;
+  margin: 20px; /* Pusatkan konten */
+  padding: 20px;
+  background-color: white; /* Warna latar belakang konten */
+  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #00796b; /* Warna judul */
+  text-align: center;
+}
+
+h3 {
+  margin: 15px 0;
+  color: #00796b; /* Warna sub-judul */
+  text-align: center;
+}
+
+p {
+  margin: 10px 0;
+  line-height: 1.5; /* Jarak antar baris */
+  text-align: justify;
+}
+h3 {
+  text-align: center; /* Perataan judul di tengah */
+  margin: 20px 0; /* Margin atas dan bawah judul */
+}
+
+.video-container {
+  display: flex; /* Menampilkan video dalam baris */
+  flex-wrap: wrap; /* Membungkus video jika tidak muat dalam satu baris */
+  justify-content: center; /* Menyelaraskan video di tengah */
+  margin: 20px; /* Margin untuk kontainer video */
+  text-align: center;
+  
+}
+
+.video {
+  background-color: #fff; /* Warna latar belakang untuk setiap video */
+  border: 1px solid #ddd; /* Border untuk setiap video */
+  border-radius: 15px solid; /* Sudut melengkung */
+  margin: 10px; /* Margin antar video */
+  padding: 10px; /* Padding dalam video */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+  text-align: center; /* Perataan teks di tengah */
+  background: linear-gradient(135deg, #00796b, #004d40);
+  
+
+}
+
+.video p {
+  font-weight: bold; /* Menebalkan teks keterangan */
+  margin-bottom: 10px; /* Margin bawah untuk keterangan */
+  text-align: center;
+  
+}
+
+video {
+  max-width: 100%; /* Memastikan video tidak lebih lebar dari kontainer */
+  height: auto; /* Menjaga rasio aspek video */
+
+}
+/* Responsif */
+
